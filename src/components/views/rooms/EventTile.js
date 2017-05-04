@@ -516,7 +516,9 @@ module.exports = withMatrixClient(React.createClass({
             mx_EventTile_redacted: isRedacted,
         });
 
-        const permalink = makeEventPermalink(this.props.mxEvent.getRoomId(), this.props.mxEvent.getId());
+        const permalink = "https://riot.igalia.com/#/room/" +
+            this.props.mxEvent.getRoomId() + "/" +
+            this.props.mxEvent.getId();
 
         const readAvatars = this.getReadAvatars();
 

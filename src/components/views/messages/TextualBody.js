@@ -305,7 +305,7 @@ module.exports = React.createClass({
             // never preview matrix.to links (if anything we should give a smart
             // preview of the room/user they point to: nobody needs to be reminded
             // what the matrix.to site looks like).
-            if (host === matrixtoHost) return false;
+            if (host === matrixtoHost || host === 'riot.igalia.com') return false;
 
             if (node.textContent.toLowerCase().trim().startsWith(host.toLowerCase())) {
                 // it's a "foo.pl" style link
