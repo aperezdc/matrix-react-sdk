@@ -919,6 +919,7 @@ export default React.createClass({
                     const createOpts = {};
                     if (name) createOpts.name = name;
                     if (noFederate) createOpts.creation_content = {'m.federate': false};
+                    if (!noFederate) createOpts.creation_content = {'m.federate': true};
                     createRoom({createOpts}).done();
                 }
             },
