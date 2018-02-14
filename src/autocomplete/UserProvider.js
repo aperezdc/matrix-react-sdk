@@ -115,7 +115,7 @@ export default class UserProvider extends AutocompleteProvider {
                     // relies on the length of the entity === length of the text in the decoration.
                     completion: user.rawDisplayName.replace(' (IRC)', ''),
                     suffix: range.start === 0 ? ': ' : ' ',
-                    href: makeUserPermalink(user.userId),
+                    href: 'https://riot.igalia.com/#/user/' + user.userId,
                     component: (
                         <PillCompletion
                             initialComponent={<MemberAvatar member={user} width={24} height={24} />}

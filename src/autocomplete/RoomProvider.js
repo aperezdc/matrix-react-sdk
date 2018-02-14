@@ -81,7 +81,7 @@ export default class RoomProvider extends AutocompleteProvider {
                 return {
                     completion: displayAlias,
                     suffix: ' ',
-                    href: makeRoomPermalink(displayAlias),
+                    href: 'https://riot.igalia.com/room/#/' + displayAlias,
                     component: (
                         <PillCompletion initialComponent={<RoomAvatar width={24} height={24} room={room.room} />} title={room.name} description={displayAlias} />
                     ),
