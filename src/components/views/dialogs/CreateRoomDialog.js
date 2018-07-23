@@ -26,7 +26,7 @@ export default React.createClass({
         onFinished: PropTypes.func.isRequired,
     },
 
-    componentDidMount: function() {
+    componentWillMount: function() {
         const config = SdkConfig.get();
         // Dialog shows inverse of m.federate (noFederate) strict false check to skip undefined check (default = true)
         this.defaultNoFederate = config.default_federate === false;
@@ -38,6 +38,12 @@ export default React.createClass({
 
     onCancel: function() {
         this.props.onFinished(false);
+    },
+
+    toggleDefaultNoFederate: function() {
+        this.defaultNoFederate = !this.defaultNoFederate;
+        console.log( this.defaultNoFederate );
+		this.setState();
     },
 
     render: function() {
@@ -60,7 +66,7 @@ export default React.createClass({
                         <details className="mx_CreateRoomDialog_details">
                             <summary className="mx_CreateRoomDialog_details_summary">{ _t('Advanced options') }</summary>
                             <div>
-                                <input type="checkbox" id="checkbox" ref="checkbox" defaultChecked={this.defaultNoFederate} />
+                                <input type="checkbox" id="checkbox" ref="checkbox" checked={this.defaultNoFederate} onChange={this.toggleDefaultNoFederate} />
                                 <label htmlFor="checkbox">
                                 { _t('Block users on other matrix homeservers from joining this room') }
                                     <br />
